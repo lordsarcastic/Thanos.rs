@@ -10,3 +10,5 @@ Cargo.lock
 **/*.rs.bk
 /target
 .env
+src/hello/
+.vscode/launch.json
