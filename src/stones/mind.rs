@@ -1,8 +1,10 @@
 use rand::{seq::SliceRandom, thread_rng};
-use std::fs;
+use std::{fs, path::{PathBuf, Path}};
 use uuid::Uuid;
 
-pub fn shuffle_path_content(contents: Vec<std::path::PathBuf>) -> Result<(), std::io::Error> {
+use crate::utils;
+
+pub fn shuffle_path_content(contents: Vec<PathBuf>) -> Result<(), std::io::Error> {
     let mut path_names: Vec<&str> = contents
         .iter()
         .map(|file| file.file_name().unwrap().to_str().unwrap())
@@ -19,7 +21,7 @@ pub fn shuffle_path_content(contents: Vec<std::path::PathBuf>) -> Result<(), std
 
     let mut rng = thread_rng();
     for uuid_path in new_path.iter() {
-        let file = std::path::Path::new(uuid_path);
+        let file = Path::new(uuid_path);
         let path = file.parent().unwrap().to_str().unwrap();
         let temp_path = path_names.choose(&mut rng).unwrap().clone();
         path_names.retain(|&x| x != temp_path);
@@ -29,3 +31,22 @@ pub fn shuffle_path_content(contents: Vec<std::path::PathBuf>) -> Result<(), std
     Ok(())
 }
 
+pub fn mind(directory: PathBuf) -> Result<(), std::io::Error> {
+    let directory_content = utils::get_directory_content(
+        directory.as_path()
+    ).unwrap();
+
+    shuffle_path_content(directory_content.get("files").unwrap().to_vec())?;
+
+    for dir in directory_content.get("dirs").unwrap() {
+        mind(dir.to_path_buf())?;
+    }
+
+    shuffle_path_content(directory_content.get("dirs").unwrap().to_vec())?;
+    Ok(())
+}
+// pick folder and separate files from folders
+// shuffle files
+// pick folders;
+//      folder one
+//      repeat above
