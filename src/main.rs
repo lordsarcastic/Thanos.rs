@@ -28,8 +28,4 @@ fn main() {
     let args = Cli::from_args();
     validate_directory(&args.directory).unwrap();
     mind(args.directory).unwrap();
-    // let content = utils::get_directory_content(&args.directory).unwrap();
-    // println!("{:?}", &content);
-    // let files = content.get("dirs").unwrap();
-    // shuffle_path_content(files.to_owned()).unwrap();
 }
