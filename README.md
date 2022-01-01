@@ -14,7 +14,9 @@ To begin:
 - `cd` into the repository and run `cargo install` to install dependencies
 - Run `cargo run` to run the tool
 ## Currently available features:
+Note: Directory path is relative to the directory you're running the tool from.
 - Mind: Run with `cargo run mind <path to a directory>`.
+
 
 ## What is this, really?
 Oh well, you know the [infinity stones](https://marvelcinematicuniverse.fandom.com/wiki/Infinity_Stones), don't you?
