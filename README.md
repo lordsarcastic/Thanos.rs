@@ -1,6 +1,21 @@
 # Thanos.rs (in development)
 Implementation of Thanos and his stones in Rust
 
+## Disclaimer
+I am not responsible for what happens if you use this tool. I will respond to threats with more evil tools.
+## Getting started (How to run this project)
+Requirements involve the Rust toolchain made up of:
+- Rustc
+- Cargo
+- Rustup
+
+To begin:
+- Clone this repository
+- `cd` into the repository and run `cargo install` to install dependencies
+- Run `cargo run` to run the tool
+## Currently available features:
+- Mind: Run with `cargo run mind <path to a directory>`.
+
 ## What is this, really?
 Oh well, you know the [infinity stones](https://marvelcinematicuniverse.fandom.com/wiki/Infinity_Stones), don't you?
 Thanos.rs is a Rust implementation of the infinity stones and [Thanos' snap](https://marvelcinematicuniverse.fandom.com/wiki/Snap) with relation to files and folders on your beloved PC.
