@@ -35,3 +35,6 @@ While this is still in implementation, guile and terror looms over he who decide
 
 ## Contributions?
 Contribs are very welcome. I don't really have a guideline, but feel free to raise an issue and make a PR if it is justified.
+
+## To do (next few days, as i'm quite occupied)
+- Implements tests for `mind`
